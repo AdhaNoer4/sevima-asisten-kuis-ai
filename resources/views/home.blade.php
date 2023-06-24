@@ -9,7 +9,7 @@
     </div>
     <div class="">
         <h4>Klik Start untuk mulai!</h4>
-        <a href="" class="btn btn-outline-primary mt-3">Start!</a>
+        <a href="/kuis" class="btn btn-outline-primary mt-3">Start!</a>
     </div>
 </div>
 @endsection

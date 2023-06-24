@@ -2,11 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KuisController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RegisterController;
+use OpenAI\Laravel\Facades\OpenAI;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,3 +42,6 @@ Route::post('/register', [RegisterController::class, 'store']);
 
 // Halaman Profile
 Route::resource('/profile', ProfileController::class)->middleware('auth');
+
+// Halaman Kuis
+Route::get('/kuis', [KuisController::class, 'index']);
