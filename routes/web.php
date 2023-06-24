@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RegisterController;
 
@@ -36,3 +37,6 @@ Route::post('/logout', [LoginController::class, 'logout']);
 // Halaman Register
 Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'store']);
+
+// Halaman Profile
+Route::resource('/profile', ProfileController::class)->middleware('auth');

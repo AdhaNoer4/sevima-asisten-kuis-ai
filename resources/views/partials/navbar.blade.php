@@ -25,7 +25,7 @@
               Welcome, {{ auth()->user()->name }}
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-grid-3x3-gap"></i> My Dashboard</a></li>
+              <li><a class="dropdown-item" href="/profile"><i class="bi bi-grid-3x3-gap"></i> Profile</a></li>
               <li><hr class="dropdown-divider"></li>
               <li>
                 <form action="/logout" method="post">
