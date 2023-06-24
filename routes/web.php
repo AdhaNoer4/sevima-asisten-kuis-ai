@@ -44,4 +44,4 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::resource('/profile', ProfileController::class)->middleware('auth');
 
 // Halaman Kuis
-Route::get('/kuis', [KuisController::class, 'index']);
+Route::get('/kuis', [KuisController::class, 'chat']);
