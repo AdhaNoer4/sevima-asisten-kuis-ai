@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+//  Halaman Home
+Route::get('/', [HomeController::class, 'index']);
+
+// Halaman About
+Route::get('/about', [HomeController::class, 'index']);
+
+// Halaman Category
+Route::get('/categories', [HomeController::class, 'index']);
+
+// Halaman Login
+Route::get('/login', function () {
+    return view('login');
 });
