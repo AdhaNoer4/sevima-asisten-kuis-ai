@@ -15,7 +15,8 @@ class ProfileController extends Controller
     {
         return view('profile.index', [
             'title' => 'Profile',
-            'users' => User::where('id', auth()->user()->id)->get()
+            'users' => User::where('id', auth()->user()->id)->get(),
+            'user' => User::all()
         ]);
     }
 
@@ -47,15 +48,29 @@ class ProfileController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('profile.edit', [
+            'user' => User::all()
+        ]);
     }
-
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, User $user)
     {
-        //
+        // untuk validasi data 
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'username' => 'required|min:3|max:255',
+            'email' => 'required|email:dns'
+
+        ]);
+
+        // untuk update data ke database
+        User::where('id', $user->id)->update($validatedData);
+
+
+        // tampilkan notif success & kembali ke halaman login
+        return redirect('/')->with('success', 'Edit profile berhasil, Silahkan Login!');
     }
 
     /**
